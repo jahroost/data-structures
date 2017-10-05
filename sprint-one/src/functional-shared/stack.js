@@ -13,32 +13,32 @@ var Stack = function() {
 //     to[key] = from[key];
 //   }
 // }
-var size = 0;
+var index = 0;
 var stackMethods = {
   // push: function(value) {
-  //   this.size++;
+  //   this.index++;
   // },
   // pop: function() {
-  //   this.size--;
+  //   this.index--;
   // },
-  // size: function() {
-  //   return this.size;
+  // index: function() {
+  //   return this.index;
   // }
 };
 
 stackMethods.push = function(value) {
-  this.storage[size] = value;
-  size++;
+  this.storage[index] = value;
+  index++;
 }
 stackMethods.pop =function() {
-  size--;
-  var result = this.storage[size];
-  delete this.storage[size];
+  index--;
+  var result = this.storage[index];
+  delete this.storage[index];
   return result;
 }
 stackMethods.size = function() {
-  if (size < 0) {
-    size = 0;
+  if (index < 0) {
+    index = 0;
   }
-  return size;
+  return index;
 }
