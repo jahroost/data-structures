@@ -8,15 +8,30 @@ var LinkedList = function() {
     var currentNode = list.head;
 
     if (!currentNode) {
+      list.head = nodeToAdd;
       list.tail = nodeToAdd;
-      return nodeToAdd;
+    } else {
+      list.tail.next = nodeToAdd;
+      list.tail = nodeToAdd;
     }
   };
 
   list.removeHead = function() {
+    var currentNode = list.head;
+    list.head = currentNode.next;
+    return currentNode.value;
   };
 
   list.contains = function(target) {
+    var currentNode = list.head;
+    while (currentNode) {
+      if (currentNode.value === target) {
+        return true;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+    return false;
   };
 
   return list;
