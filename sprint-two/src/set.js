@@ -16,7 +16,11 @@ var setPrototype = {
     }
   },
   remove: function(item) {
-    delete this._storage[0];
+    for (var i = 0; i < this._storage.length; i++) {
+      if (this._storage[i] === item) {
+        delete this._storage[i];
+      }
+    }
   }
 };
 
